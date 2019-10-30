@@ -1,0 +1,27 @@
+body,h1,h2,h3,h4,h5,h6,ul,li {
+    margin:0;
+    padding:0;
+
+}
+
+@mixin media-sm {
+    @media screen and (max-width: 767px){
+        @content;
+    }
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+}
+@mixin media-lg {
+    @media screen and (min-width: 1024px){
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (min-width: 1440 px){
+        @content;
+    }
+}

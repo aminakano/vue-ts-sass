@@ -1,0 +1,36 @@
+@include media-sm {
+    .top-display {
+        padding-bottom: 10%;
+        img {
+            width: 10rem;
+            height: 7rem;
+        }
+        
+    }
+    #footer {
+        height: 10vh;
+    }
+}
+@include media-md {
+    #app {
+        margin-top:15vh;
+    }
+    .top-display {
+        padding-bottom: 12%;       
+    }
+    #footer {
+        height: 15vh;
+    }
+}
+
+@include media-lg {
+
+    #footer{
+      align-items: flex-end;
+      flex-direction: column;
+      padding-right:10%;
+    }
+    
+}
+
+@include media-xl {}
