@@ -13,15 +13,25 @@
     #footer {
         height: 10vh;
     }
+    .multiples {
+        div {
+            width: 50%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
 }
 @include media-md {
     #app {
         margin-top:15vh;
     }
-    
-    
     #footer {
         height: 15vh;
+    }
+    .multiples {
+        div {
+            width: 30%;
+        }
     }
 }
 
