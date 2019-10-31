@@ -1,11 +1,11 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// export const dogApi = axios.create({
-//     baseURL: 'https://dog.ceo/api/breeds/image/random'
-// })
+export const QuizApi = axios.create({
+    baseURL: 'https://opentdb.com/api.php?amount=10'
+})
 
-// export async function getDogs(){
-//     const response = await dogApi.get('/api/dogs')
-//     console.log(response)
-//     return response.data;
-// }
+export async function getInfo(){
+    const response = await QuizApi.get('/api/')
+    console.log(response)
+    return response.data;
+}

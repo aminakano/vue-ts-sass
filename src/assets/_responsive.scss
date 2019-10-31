@@ -5,6 +5,9 @@
             width: 10rem;
             height: 7rem;
         }
+        li {
+            width: 40%;
+        }
         
     }
     #footer {
@@ -15,16 +18,19 @@
     #app {
         margin-top:15vh;
     }
-    .top-display {
-        padding-bottom: 12%;       
-    }
+    
+    
     #footer {
         height: 15vh;
     }
 }
 
 @include media-lg {
-
+    .top-display {
+        li {
+            width: 15%;
+        }
+    }
     #footer{
       align-items: flex-end;
       flex-direction: column;
