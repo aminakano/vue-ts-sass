@@ -1,7 +1,7 @@
 <template>
   <div class="random">
     <!-- <h1>This is a random page</h1> -->
-    <div>
+    <div class="quiz-detail">
       <h2 class="question">
         {{decodeHTMLEntities(quiz.question)}} 
       </h2>
@@ -30,11 +30,12 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import axios from 'axios';
+import { Quiz } from '@/store/models'
 
 @Component
 export default class Random extends Vue {
     quiz: object = [];
-    multiple: object = [];
+    multiple: Array<String> = [];
     correct: boolean = false;
     incorrect: boolean = false;
     isLoaded: boolean = true;
@@ -48,29 +49,25 @@ export default class Random extends Vue {
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
     const response = await instance.get('https://opentdb.com/api.php?amount=1&type=multiple');
-    this.quiz = await response.data.results[0]
+    this.quiz = await response.data.results[0] as Quiz
     this.multiple = this.quiz.incorrect_answers;
     this.multiple.push(this.quiz.correct_answer);
     this.arrShuffle(this.multiple);
     this.isLoaded = false
-
+    console.log(this.quiz)
   }
   decodeHTMLEntities(text:string) {
    let textArea = document.createElement('textarea');
     textArea.innerHTML = text;
     return textArea.value;
   }
-  arrShuffle(item:object){
-      let num:number = item.length;
-      while(num){
-        let i = Math.floor(Math.random()* num);
-        let str = item[--num];
-        item[num] = item[i];
-        item[i] = str;
-      }
-  }
+  arrShuffle(array:any) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+        }
+  } 
   isCorrect(selected:string){
-
       if(selected === this.quiz.correct_answer) {
         this.correct = true
         setTimeout(()=>{ 

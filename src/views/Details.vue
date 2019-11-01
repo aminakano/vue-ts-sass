@@ -1,16 +1,31 @@
 <template>
-  <div class="details">
-    <h1>Let's start!</h1>
-    <div class="content">
-      <!-- <md-card class="details-card">
-        <h3>{{book.title}}</h3>
-        <img v-bind:src="getImageSrc()" />
-        <h4>Authors</h4>
-        <p> {{book.authors}} </p>
-        <h4>Published</h4>
-        <p>{{book.year}}</p>
-      </md-card> -->
+  <div class="details"> 
+    <div class="quiz-detail details__for-detail">
+      <h2 class="question">
+        {{decodeHTMLEntities(quiz.question)}} 
+      </h2>
+      <div class="result">
+        <p v-if="correct" class="result__positive">Correct!</p>
+        <p v-if="incorrect" class="result__negative">Incorrect...</p>
+        <div v-if="isLoaded" class="lds-ripple"><div></div><div></div></div>
+      </div>
+
+      <div class="labels">
+        <span class="labels__label">{{quiz.category}}</span>
+        <span class="labels__label">{{quiz.difficulty}}</span>
+      </div>
+      <div class="multiples">
+          <div 
+            v-for="choice in multiple"
+            v-bind:key= "choice"
+            v-on:click="isCorrect(choice)">
+            {{choice}}
+          </div>
+      </div>  
     </div>
+    <div class="details__related-questions">
+        Related questions...
+    </div>  
   </div>
 </template>
 
@@ -19,19 +34,49 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Details extends Vue {
-  book: any;
-
+  quiz: any;
+  multiple: Array<String> = [];
+  correct: boolean = false;
+  incorrect: boolean = false;
+  isLoaded: boolean = true;
+  
   created() {
-    this.book = {
-      title: this.$route.query.title,
-      cover_id: this.$route.query.cover_id,
-      authors: this.$route.query.authors,
-      year: this.$route.query.year
+    this.quiz = {
+      question: this.$route.query.question,
+      difficulty: this.$route.query.difficulty,
+      category: this.$route.query.category,
+      correct_answer: this.$route.query.correct_answer,
+      incorrect_answers: this.$route.query.incorrect_answers
     };
-  }
+    this.multiple = this.quiz.incorrect_answers
+    this.multiple.push(this.quiz.correct_answer)
+    this.arrShuffle(this.multiple)
+    this.isLoaded = false; 
 
-  getImageSrc() {
-    return "http://covers.openlibrary.org/b/OLID/" + this.book.cover_id + "-M.jpg";
+  }
+  decodeHTMLEntities(text:string) {
+   let textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
+  }
+  arrShuffle(array:any) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+        }
+  }  
+  isCorrect(selected:string){
+      if(selected === this.quiz.correct_answer) {
+        this.correct = true
+        setTimeout(()=>{ 
+          this.correct = false
+          },1000);
+
+      }else {
+        this.incorrect = true
+        setTimeout(()=>{this.incorrect = false},500)
+      }
+
   }
 }
 </script>

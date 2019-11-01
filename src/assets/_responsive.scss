@@ -5,7 +5,7 @@
             width: 10rem;
             height: 7rem;
         }
-        li {
+        &__card {
             width: 40%;
         }
         
@@ -37,14 +37,16 @@
 
 @include media-lg {
     .top-display {
-        li {
+
+        &__card {
             width: 15%;
+            
         }
     }
     #footer{
-      align-items: flex-end;
-      flex-direction: column;
-      padding-right:10%;
+        align-items: flex-end;
+        flex-direction: column;
+        padding-right:10%;
     }
     
 }
