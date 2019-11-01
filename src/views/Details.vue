@@ -25,12 +25,20 @@
     </div>
     <div class="details__related-questions">
         Related questions...
+        <div class="multiples">
+          <div 
+            v-for="(item,x) in relatedQuestions"
+            v-bind:key= "x">
+            {{decodeHTMLEntities(item.question)}}
+          </div>
+      </div>  
     </div>  
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import axios from 'axios';
 
 @Component
 export default class Details extends Vue {
@@ -39,20 +47,38 @@ export default class Details extends Vue {
   correct: boolean = false;
   incorrect: boolean = false;
   isLoaded: boolean = true;
-  
+  triviaCategories: any;
+  relatedQuestions: Array<Object> = [];
+
+  mounted(){
+    this.getRelatedQuestions();
+  }
+  async getRelatedQuestions(){
+    const instance = axios.create({
+      headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+    });
+    let response = await instance.get('https://opentdb.com/api_category.php');
+    let id = response.data.trivia_categories.find((obj: any) => obj.name === this.quiz.category).id;
+    
+    response = await instance.get(`https://opentdb.com/api.php?amount=4&category=${id}`);
+    let data = response.data.results;
+    data = data.filter((obj: any) => obj.question !== this.quiz.question).splice(0,3);
+   
+    this.relatedQuestions = data;
+  }
+
   created() {
     this.quiz = {
       question: this.$route.query.question,
       difficulty: this.$route.query.difficulty,
       category: this.$route.query.category,
       correct_answer: this.$route.query.correct_answer,
-      incorrect_answers: this.$route.query.incorrect_answers
+      incorrect_answers: this.$route.query.incorrect_answers,
     };
     this.multiple = this.quiz.incorrect_answers
     this.multiple.push(this.quiz.correct_answer)
     this.arrShuffle(this.multiple)
-    this.isLoaded = false; 
-
+    this.isLoaded = false;
   }
   decodeHTMLEntities(text:string) {
    let textArea = document.createElement('textarea');
