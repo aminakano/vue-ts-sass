@@ -25,13 +25,13 @@
     </div>
     <div class="details__related-questions">
         Related questions...
-        <div class="multiples">
+        <div class="related">
           <div 
             v-for="(item,x) in relatedQuestions"
             v-bind:key= "x">
             {{decodeHTMLEntities(item.question)}}
           </div>
-      </div>  
+       </div>  
     </div>  
   </div>
 </template>
@@ -60,7 +60,7 @@ export default class Details extends Vue {
     let response = await instance.get('https://opentdb.com/api_category.php');
     let id = response.data.trivia_categories.find((obj: any) => obj.name === this.quiz.category).id;
     
-    response = await instance.get(`https://opentdb.com/api.php?amount=4&category=${id}`);
+    response = await instance.get(`https://opentdb.com/api.php?amount=4&type=multiple&category=${id}`);
     let data = response.data.results;
     data = data.filter((obj: any) => obj.question !== this.quiz.question).splice(0,3);
    

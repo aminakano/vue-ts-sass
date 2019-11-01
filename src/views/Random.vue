@@ -1,6 +1,5 @@
 <template>
   <div class="random">
-    <!-- <h1>This is a random page</h1> -->
     <div class="quiz-detail">
       <h2 class="question">
         {{decodeHTMLEntities(quiz.question)}} 
@@ -34,7 +33,7 @@ import { Quiz } from '@/store/models'
 
 @Component
 export default class Random extends Vue {
-    quiz: object = [];
+    quiz: any = [];
     multiple: Array<String> = [];
     correct: boolean = false;
     incorrect: boolean = false;
@@ -42,14 +41,13 @@ export default class Random extends Vue {
 
   mounted(){
     this.getQuizzes()
-    
   }
   async getQuizzes(){
     const instance = axios.create({
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
     const response = await instance.get('https://opentdb.com/api.php?amount=1&type=multiple');
-    this.quiz = await response.data.results[0] as Quiz
+    this.quiz = await response.data.results[0];
     this.multiple = this.quiz.incorrect_answers;
     this.multiple.push(this.quiz.correct_answer);
     this.arrShuffle(this.multiple);

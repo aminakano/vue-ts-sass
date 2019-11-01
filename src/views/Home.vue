@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <!-- <HelloWorld msg="Welcome to My App" /> -->
     <ul class="top-display">      
         <li v-for="(quiz, x) in quizzes"
             v-bind:key= "x"
@@ -15,29 +14,21 @@
 </template>
 
 <script lang="ts">
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import axios from 'axios';
 import Details from '@/views/Details.vue'
-// export default {
-//   name: "home",
-//   components: {
-//     HelloWorld
-//   }
-// }
+
 @Component({
   components :{
     Details
   }})
 export default class Home extends Vue {
-  // @Prop() quiz;
   
   quizzes = [];
   categoryIds = [];
   relatedQuestions = [];
   query = "";
-  // level =[];
   
   mounted(){
     this.getQuizzes()
@@ -50,9 +41,7 @@ export default class Home extends Vue {
     const response = await instance.get('https://opentdb.com/api.php?amount=10&type=multiple');
    
     this.quizzes = await response.data.results;
-    // this.quizzes.forEach(val=> this.level.push(val.difficulty))
-     console.log(this.quizzes)
-    // console.log(this.level)
+
   }
   async getCategoryIds(){
     const instance = axios.create({
@@ -61,7 +50,6 @@ export default class Home extends Vue {
     const response = await instance.get('https://opentdb.com/api_category.php');
    
     this.categoryIds = await response.data.trivia_categories;
-     console.log(this.categoryIds)
   }
 
   decodeHTMLEntities(text:any) {
@@ -82,8 +70,6 @@ export default class Home extends Vue {
     })
 
   }
-  
-
-  
-  }
+    
+}
 </script>
