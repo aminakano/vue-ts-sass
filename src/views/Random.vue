@@ -22,7 +22,8 @@
             {{choice}}
           </div>
       </div>  
-    </div>    
+    </div>
+    <button v-on:click="getQuizzes()">Get a new random question!</button>    
   </div>
 </template>
 
