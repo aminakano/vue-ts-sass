@@ -1,11 +1,42 @@
 <template>
-  <div>
-    <template>
-      <pre>loading...</pre>
-    </template>
-    <template>
-    </template> 
-    <img src="https://images.dog.ceo/breeds/keeshond/n02112350_6916.jpg"> 
+  <div class="categories">
+    Select quizzes by categories!
+    <ul class="categories__item">
+       <li 
+        v-for="(category,x) in categoryIds"
+        v-bind:key= "x"
+        v-on:click="viewDetails(category)">
+        {{category.name}}
+      </li> 
+    </ul>
+    
   </div>
 </template>
 
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+import axios from 'axios';
+@Component
+export default class Categories extends Vue {
+categoryIds: any = [];
+
+    mounted(){
+      this.generateCategories();
+    }
+    async generateCategories(){
+      const instance = axios.create({
+      headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+      });
+      let response = await instance.get('https://opentdb.com/api_category.php');
+      this.categoryIds = await response.data.trivia_categories;
+      console.log(this.categoryIds)
+    }
+    viewDetails(categoryIds: any){
+      this.$router.push({ path: 'details', query: {
+        category_ids: categoryIds.id
+        }
+      })
+    console.log(categoryIds.id)
+    }
+}
+</script>

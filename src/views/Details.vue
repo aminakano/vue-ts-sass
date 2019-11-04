@@ -76,6 +76,7 @@ export default class Details extends Vue {
       category: this.$route.query.category,
       correct_answer: this.$route.query.correct_answer,
       incorrect_answers: this.$route.query.incorrect_answers,
+      category_id: this.$route.query.categoryIds
     };
     this.multiple = this.quiz.incorrect_answers
     this.multiple.push(this.quiz.correct_answer)

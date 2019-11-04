@@ -41,7 +41,7 @@ export default class Home extends Vue {
     const response = await instance.get('https://opentdb.com/api.php?amount=10&type=multiple');
    
     this.quizzes = await response.data.results;
-
+    console.log(this.quizzes)
   }
   async getCategoryIds(){
     const instance = axios.create({
@@ -50,6 +50,7 @@ export default class Home extends Vue {
     const response = await instance.get('https://opentdb.com/api_category.php');
    
     this.categoryIds = await response.data.trivia_categories;
+    console.log(this.categoryIds)
   }
 
   decodeHTMLEntities(text:any) {
