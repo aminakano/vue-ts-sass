@@ -23,7 +23,9 @@
           </div>
       </div>  
     </div>
-    <button v-on:click="getQuizzes()">Get a new random question!</button>    
+    <div class="random__btn-area">
+      <button v-on:click="getQuizzes()">Get a new random question!</button>    
+    </div>
   </div>
 </template>
 

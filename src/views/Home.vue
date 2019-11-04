@@ -29,6 +29,7 @@ export default class Home extends Vue {
   categoryIds = [];
   relatedQuestions = [];
   query = "";
+  level:any =[];
   
   mounted(){
     this.getQuizzes()
@@ -41,7 +42,11 @@ export default class Home extends Vue {
     const response = await instance.get('https://opentdb.com/api.php?amount=10&type=multiple');
    
     this.quizzes = await response.data.results;
+    // console.log(this.sortByObject(this.quizzes))
     console.log(this.quizzes)
+    const sortBy:Array<String> = ["easy","medium","hard"];
+    console.log(this.customSort(this.quizzes,sortBy,{sortField:"difficulty"}))
+    
   }
   async getCategoryIds(){
     const instance = axios.create({
@@ -70,6 +75,37 @@ export default class Home extends Vue {
       }
     })
 
+  }
+  // sortByObject(data:any){
+  //   let ordering:any = {};
+  //   const sortBy:Array<String> = ["easy","medium","hard"];
+  //   for(let i in data){
+  //     ordering[sortBy[i]] = i;
+  //   }
+  //   data.sort( function(a:any, b:any) {
+  //   return (ordering[a.difficulty] - ordering[b.difficulty]);
+  //   })
+  // }
+
+
+  sortByObject(data:any){
+
+      data.reduce((obj:any,item:any,index:any) => {
+        return {
+          ...obj,
+          [item]:index
+        }
+      }, {})
+  }
+  
+  customSort(data:any, sortBy:any, sortField:any) {
+    const sortByObject = sortBy.reduce((obj:any, item:any, index:number) => {
+      return {
+        ...obj,
+        [item]: index
+      }
+    }, {})
+    return data.sort((a:any, b:any) => sortByObject[a[sortField]] - sortByObject[b[sortField]])
   }
     
 }
