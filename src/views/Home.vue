@@ -46,6 +46,8 @@ export default class Home extends Vue {
     const response = await instance.get(categoryId ? url + `&category=${categoryId}` : url);
    
     this.quizzes = await response.data.results;
+  
+    console.log(this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"}))
     
   }
   async getCategoryIds(){
@@ -76,6 +78,16 @@ export default class Home extends Vue {
     })
 
   }
+  // sortByObject(data:any){
+  //   let ordering:any = {};
+  //   const sortBy:Array<String> = ["easy","medium","hard"];
+  //   for(let i in data){
+  //     ordering[sortBy[i]] = i;
+  //   }
+  //   data.sort( function(a:any, b:any) {
+  //   return (ordering[a.difficulty] - ordering[b.difficulty]);
+  //   })
+  // }
   
   customSort(data:any, sortBy:any, sortField:any, ascending:boolean=true) {
     const sortByObject = sortBy.reduce((obj:any, item:any, index:number) => {
