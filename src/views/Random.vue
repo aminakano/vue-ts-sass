@@ -77,11 +77,10 @@ export default class Random extends Vue {
           this.isLoaded =true
           },1000);
 
-      }else {
+      } else {
         this.incorrect = true
         setTimeout(()=>{this.incorrect = false},500)
       }
-
   }
 }
 </script>

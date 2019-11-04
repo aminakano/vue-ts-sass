@@ -29,14 +29,12 @@ categoryIds: any = [];
       });
       let response = await instance.get('https://opentdb.com/api_category.php');
       this.categoryIds = await response.data.trivia_categories;
-      console.log(this.categoryIds)
     }
-    viewDetails(categoryIds: any){
-      this.$router.push({ path: 'details', query: {
-        category_ids: categoryIds.id
+    viewDetails(category: any){
+      this.$router.push({ path: '/', query: {
+        categoryId: category.id
         }
       })
-    console.log(categoryIds.id)
     }
 }
 </script>

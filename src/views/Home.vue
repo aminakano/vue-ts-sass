@@ -30,6 +30,8 @@ export default class Home extends Vue {
   relatedQuestions = [];
   query = "";
   level:any =[];
+  sortedData: Array<String> = ["easy","medium","hard"];
+
   
   mounted(){
     this.getQuizzes()
@@ -39,13 +41,11 @@ export default class Home extends Vue {
     const instance = axios.create({
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
-    const response = await instance.get('https://opentdb.com/api.php?amount=10&type=multiple');
+    let categoryId = this.$route.query.categoryId;
+    let url = 'https://opentdb.com/api.php?amount=10&type=multiple'
+    const response = await instance.get(categoryId ? url + `&category=${categoryId}` : url);
    
     this.quizzes = await response.data.results;
-    // console.log(this.sortByObject(this.quizzes))
-    console.log(this.quizzes)
-    const sortBy:Array<String> = ["easy","medium","hard"];
-    console.log(this.customSort(this.quizzes,sortBy,{sortField:"difficulty"}))
     
   }
   async getCategoryIds(){
@@ -76,36 +76,26 @@ export default class Home extends Vue {
     })
 
   }
-  // sortByObject(data:any){
-  //   let ordering:any = {};
-  //   const sortBy:Array<String> = ["easy","medium","hard"];
-  //   for(let i in data){
-  //     ordering[sortBy[i]] = i;
-  //   }
-  //   data.sort( function(a:any, b:any) {
-  //   return (ordering[a.difficulty] - ordering[b.difficulty]);
-  //   })
-  // }
-
-
-  sortByObject(data:any){
-
-      data.reduce((obj:any,item:any,index:any) => {
-        return {
-          ...obj,
-          [item]:index
-        }
-      }, {})
-  }
   
-  customSort(data:any, sortBy:any, sortField:any) {
+  customSort(data:any, sortBy:any, sortField:any, ascending:boolean=true) {
     const sortByObject = sortBy.reduce((obj:any, item:any, index:number) => {
       return {
         ...obj,
         [item]: index
       }
     }, {})
-    return data.sort((a:any, b:any) => sortByObject[a[sortField]] - sortByObject[b[sortField]])
+
+    let result = data.sort((a:any, b:any) => {
+      if (sortByObject[a.difficulty] > sortByObject[b.difficulty]) {
+        return 1;
+      }
+      if (sortByObject[a.difficulty] < sortByObject[b.difficulty]) {
+        return -1;
+      }
+      return 0;
+    })
+    if (ascending === false) { result = result.reverse() }
+    return result;
   }
     
 }
