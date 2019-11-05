@@ -78,6 +78,7 @@
 
             button {
                 border-radius: $border-radius2;
+                margin: 0;
             }
         }   
     }
@@ -96,12 +97,10 @@
             width: 100%;
            
             .multiples {
+                height: 30vh;
                 div {
                     width: 40%;
-                    height: 35px;
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
                     padding:3%;
                     border-radius: $border-radius2;
                     font-size: .9rem;
@@ -109,22 +108,24 @@
             }
         }
         &__related-questions {
-            
+            justify-content:  center;
             width: 100%;
+            margin-top: 10%;
             .related-title {
                 align-self: flex-start;
                 padding-left:5%;
             }
             .related-container {
                 width: 100%;
-
+                justify-content: center;
+                height: 40vh;
                 .related {
                     border-radius: $border-radius2;
                     font-size: .9rem;
+                    margin: .5%;
                 }
             }     
         }
-
     }
     
     //categories page
@@ -132,6 +133,10 @@
         margin:22% 5%;
         height: 100%;
         overflow: scroll;
+        h3 {
+            padding: 0;
+            font-size: 1rem;
+        }
 
         &__item {
             li {
@@ -144,11 +149,97 @@
 }
 @include media-md {
     #app {
-        margin-top:15vh;
+        margin-top:10vh;
     }
     #footer {
         height: 15vh;
     }
+    //home page
+    .home {
+         &__toggle-btn {
+            margin: 2%;
+        }
+        .top-display {
+            padding-bottom: 18vh;
+        }
+    }
+    //details page
+    .details {
+        flex-direction: column;
+        justify-content: center;
+        height: 75vh;
+        &__for-detail {
+             width: 100%;
+             padding-top: 0;
+             .question {
+                 width: 90%;
+                 padding: 1% 5% 0;
+             }
+        }
+        .multiples {
+             height: 30vh;
+        }
+        &__related-questions {
+            width: 100%;
+            .related-title {
+                font-size: 1.3rem;
+                padding: 2% 0;
+            }
+            .related-container {
+                flex-direction: row;
+                height: 20vh; 
+                .related {
+                    width: 30%;
+                }
+            }
+        }
+    }
+
+    //categories page
+    .categories {
+        margin:18% 8%;
+        padding-bottom: 5vh;
+        height: 100%;
+        overflow: scroll;
+
+        h3 {
+            padding: 0;
+        }
+        &__item {
+            li {
+                width: 100%;
+                border-radius: $border-radius2;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    //random page
+
+     .random {
+         padding-top: 0;
+
+        .quiz-detail {
+            .question {
+                font-size: 1.9rem;
+                padding: 2% 5% 0;
+                width: 90%;
+            }
+        .multiples {
+            padding: 3% 0;
+            div {
+                width: 100%;
+                padding: 3% 2%;
+                font-size: 1.5rem;
+              }
+          }  
+        }
+        &__btn-area {
+            margin-top:5%;
+        }   
+    }
+
     .multiples {
         div {
             width: 30%;

@@ -1,6 +1,6 @@
 <template>
   <div class="categories">
-    Select quizzes by categories!
+    <h3>Select quizzes by categories!</h3>
     <ul class="categories__item">
        <li 
         v-for="(category,x) in categoryIds"

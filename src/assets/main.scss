@@ -99,6 +99,7 @@
     background: $color1;
     color: $color3;
     border: none;
+    margin: 1%;
   }
 }
 
@@ -121,54 +122,7 @@
       font-size: .9rem;
     }
 }
-
-//random page
-
-.random{
-    padding-top: 3%;
-
-    &__btn-area{
-      display: flex;
-      justify-content: flex-end;
-
-      button {
-        padding: 2%;
-        font-size: 1.2rem;
-        border-radius: $border-radius1;
-        outline: none;
-        background: $color2;
-        color: $color3;
-        border: none;
-      }
-    }
- }
-
-//detail page
-
-.details {
-  display: flex;
-  justify-content: space-between;
-  height: 70vh;
-
-  &__for-detail {
-    width: 60%;
-
-  }
-
-  &__related-questions{
-      width: 40%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      .related {
-        padding: 5%;
-        margin: 2%;
-        background: $color1;
-        color: $color3;
-      }
-      
-  }
-}
+//common between details and random
 
 .quiz-detail {
     .question {
@@ -214,9 +168,13 @@
         justify-content: space-around;
         div {
           background: $color4;
-          width: 10%;
+          width: 15%;
           margin: 1%;
-          padding: 5%;
+          padding: 3%;
+          font-size: 1.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
             @include transition-ease;
         }
         div:hover {
@@ -227,10 +185,104 @@
     }
 } 
 
+//detail page
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  height: 70vh;
+
+  &__for-detail {
+    width: 60%;
+    padding-top: 3%;
+
+    .labels {
+      padding-right:3%;
+      margin-right: 5%;
+
+
+      &__label {
+        padding: 1% 5%;
+        display: flex;
+        align-items: center;
+
+      }
+    }
+
+    .question {
+      width:100%;
+      padding: 0;
+    }
+    .multiples {
+      display: flex;
+      align-items: center;
+      height: 40vh;
+      div {
+        width: 40%;
+        height: 5rem;
+      }
+    }
+    
+  }
+
+  &__related-questions{
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .related-container {
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .related {
+          padding: 5%;
+          margin: 2%;
+          background: $color1;
+          color: $color3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      
+  }
+}
+
+
+//random page
+
+.random{
+    padding: 3% 0 22vh;
+
+    &__btn-area{
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 2%;
+        margin-right: 5%;
+        font-size: 1.2rem;
+        border-radius: $border-radius1;
+        outline: none;
+        background: $color2;
+        color: $color3;
+        border: none;
+      }
+    }
+ }
+
+
+
 //categories page
 
 .categories {
     height: 70vh;
+    h3 {
+      padding-top: 4%;
+      font-size: 1.5rem;
+    }
     &__item {
       padding-top: 5%;
       display: flex;

@@ -11,8 +11,8 @@
       </div>
 
       <div class="labels">
-        <span class="labels__label">{{quiz.category}}</span>
-        <span class="labels__label">{{quiz.difficulty}}</span>
+        <p class="labels__label">{{quiz.category}}</p>
+        <p class="labels__label">{{quiz.difficulty}}</p>
       </div>
       <div class="multiples">
           <div 
