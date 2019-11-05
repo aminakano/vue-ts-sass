@@ -79,8 +79,22 @@
   }
 }
 
+//home page
 
+.home {
 
+  &__btn-area {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__toggle-btn {
+    outline: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: $border-radius1;
+  }
+}
 
 .top-display {
   display: flex;
@@ -112,7 +126,7 @@
     button {
       padding: 2%;
       font-size: 1.2rem;
-      border-radius: 10px;
+      border-radius: $border-radius1;
       outline: none;
       font-family: "Avenir", Helvetica, Arial, sans-serif;
     }

@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <div class="home__btn-area">
+      <button v-on:click="toggleSort()" class="home__toggle-btn">Toggle Order</button>
+    </div>
     <ul class="top-display">      
         <li v-for="(quiz, x) in quizzes"
             v-bind:key= "x"
@@ -31,7 +34,8 @@ export default class Home extends Vue {
   query = "";
   level:any =[];
   sortedData: Array<String> = ["easy","medium","hard"];
-
+  ascending = true;
+  btnContent = "To desc"
   
   mounted(){
     this.getQuizzes()
@@ -46,8 +50,7 @@ export default class Home extends Vue {
     const response = await instance.get(categoryId ? url + `&category=${categoryId}` : url);
    
     this.quizzes = await response.data.results;
-  
-    console.log(this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"}))
+    this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"})
     
   }
   async getCategoryIds(){
@@ -78,17 +81,7 @@ export default class Home extends Vue {
     })
 
   }
-  // sortByObject(data:any){
-  //   let ordering:any = {};
-  //   const sortBy:Array<String> = ["easy","medium","hard"];
-  //   for(let i in data){
-  //     ordering[sortBy[i]] = i;
-  //   }
-  //   data.sort( function(a:any, b:any) {
-  //   return (ordering[a.difficulty] - ordering[b.difficulty]);
-  //   })
-  // }
-  
+ 
   customSort(data:any, sortBy:any, sortField:any, ascending:boolean=true) {
     const sortByObject = sortBy.reduce((obj:any, item:any, index:number) => {
       return {
@@ -108,6 +101,15 @@ export default class Home extends Vue {
     })
     if (ascending === false) { result = result.reverse() }
     return result;
+  }
+
+  toggleSort(){
+
+    if(this.ascending)
+    {this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=false)
+    this.btnContent = "to ascending";}
+    else this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=true)
+
   }
     
 }
