@@ -123,18 +123,22 @@
 
 .random{
     padding-top: 3%;
-  &__btn-area{
-    display: flex;
-    justify-content: flex-end;
-    
-    button {
-      padding: 2%;
-      font-size: 1.2rem;
-      border-radius: $border-radius1;
-      outline: none;
-      font-family: "Avenir", Helvetica, Arial, sans-serif;
+
+    &__btn-area{
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 2%;
+        font-size: 1.2rem;
+        border-radius: $border-radius1;
+        outline: none;
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        background: $color2;
+        color: $color3;
+        border: none;
+      }
     }
-  }
  }
 
 //detail page
