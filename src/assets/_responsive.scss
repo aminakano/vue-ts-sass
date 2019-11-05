@@ -15,7 +15,33 @@
         height: 10vh;
     }
 
+    //home page 
+
+    .home {
+        &__toggle-btn {
+            padding: .2rem .8rem;
+            margin: 2%;
+            font-size: .9rem;
+            border-radius: $border-radius2;
+           
+        }
+        .top-display {
+            padding:2% 0 10vh;
+            &__card {
+                width: 45%;
     
+                h3 {
+                    font-size: .8rem;
+                }
+                h4,p {
+                    font-size: .6rem;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
 
     //common between details and random
     .quiz-detail {

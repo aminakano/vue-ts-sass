@@ -1,7 +1,7 @@
 @import 'config';
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: $primary-font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -93,9 +93,12 @@
 
   &__toggle-btn {
     outline: none;
-    padding: 1rem;
+    padding: .9rem;
     font-size: 1.1rem;
     border-radius: $border-radius1;
+    background: $color1;
+    color: $color3;
+    border: none;
   }
 }
 
@@ -133,7 +136,6 @@
         font-size: 1.2rem;
         border-radius: $border-radius1;
         outline: none;
-        font-family: "Avenir", Helvetica, Arial, sans-serif;
         background: $color2;
         color: $color3;
         border: none;

@@ -3,7 +3,8 @@
     <div class="home__btn-area">
       <button v-on:click="toggleSort()" class="home__toggle-btn">{{btnContent}}</button>
     </div>
-    <ul class="top-display">      
+    <ul class="top-display">
+      <div v-if="isLoaded" class="lds-ripple"><div></div><div></div></div>      
         <li v-for="(quiz, x) in quizzes"
             v-bind:key= "x"
             class="top-display__card"
@@ -32,7 +33,8 @@ export default class Home extends Vue {
   level:any =[];
   sortedData: Array<String> = ["easy","medium","hard"];
   ascending = true;
-  btnContent = "To Descending"
+  btnContent = "To Descending ▼";
+  isLoaded:boolean = true;
   
   mounted(){
     this.getQuizzes()
@@ -48,6 +50,7 @@ export default class Home extends Vue {
    
     this.quizzes = await response.data.results;
     this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"})
+    this.isLoaded = false;
     
   }
   async getCategoryIds(){
@@ -102,11 +105,11 @@ export default class Home extends Vue {
   toggleSort(){
     if(this.ascending){
     this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=false)
-    return this.btnContent = "to Ascending";
+    return this.btnContent = "to Ascending　▲";
     }
     else {
       this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=true)
-    return this.btnContent = "to Descending";
+    return this.btnContent = "to Descending　▼";
     }
   }   
 }
