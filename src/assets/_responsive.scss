@@ -13,11 +13,75 @@
     #footer {
         height: 10vh;
     }
-    .multiples {
-        div {
-            width: 50%;
-            flex-wrap: wrap;
-            justify-content: center;
+    //details page
+
+    .details {
+        flex-direction: column;
+        height: 100%;
+        margin-bottom:10vh;
+        width: 100vw;
+        &__for-detail {
+            width: 100%;
+            .question {
+                padding:3% 0 1%;
+                width: 100%;
+                
+            }
+            .labels {
+                &__label {
+                    font-size: .9rem;
+                }
+            }
+         
+            
+            .multiples {
+                div {
+                    width: 40%;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding:3%;
+                    border-radius: $border-radius2;
+                    font-size: .9rem;
+                }
+            }
+        }
+        &__related-questions{
+            
+            width: 100%;
+            .related-title {
+                align-self: flex-start;
+                padding-left:5%;
+            }
+            .related-container {
+                width: 100%;
+
+                .related {
+                    border-radius: $border-radius2;
+                    font-size: .9rem;
+                }
+
+               
+            }
+
+             
+        }
+
+    }
+    
+    //categories page
+    .categories {
+        margin:22% 5%;
+        height: 100%;
+        overflow: scroll;
+
+        &__item {
+            li {
+                width: 100%;
+                border-radius: $border-radius2;
+                height: 35px;
+            }
         }
     }
 }

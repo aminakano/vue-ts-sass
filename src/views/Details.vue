@@ -24,14 +24,16 @@
       </div>  
     </div>
     <div class="details__related-questions">
-        Related questions...
-        
+        <span class="related-title"> Related questions...</span>
+        <div class="related-container">
           <div 
             v-for="(item,x) in relatedQuestions"
             v-bind:key= "x"
-            class="related">
+            class="related"
+            v-on:click="viewDetails(item)">
             {{decodeHTMLEntities(item.question)}}
           </div>
+        </div>
         
     </div>  
   </div>
@@ -53,6 +55,7 @@ export default class Details extends Vue {
 
   mounted(){
     this.getRelatedQuestions();
+
   }
   async getRelatedQuestions(){
     const instance = axios.create({
@@ -62,6 +65,7 @@ export default class Details extends Vue {
     let id = response.data.trivia_categories.find((obj: any) => obj.name === this.quiz.category).id;
     
     response = await instance.get(`https://opentdb.com/api.php?amount=4&type=multiple&category=${id}`);
+
     let data = response.data.results;
     data = data.filter((obj: any) => obj.question !== this.quiz.question).splice(0,3);
    
@@ -82,6 +86,17 @@ export default class Details extends Vue {
     this.multiple.push(this.quiz.correct_answer)
     this.arrShuffle(this.multiple)
     this.isLoaded = false;
+    
+  }
+  viewDetails(item:any){
+      this.quiz = {
+      question: item.question,
+      difficulty: item.difficulty,
+      category: item.category,
+      correct_answer: item.correct_answer,
+      incorrect_answers: item.incorrect_answers
+      }
+      console.log(this.quiz)
   }
   decodeHTMLEntities(text:string) {
    let textArea = document.createElement('textarea');

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__btn-area">
-      <button v-on:click="toggleSort()" class="home__toggle-btn">Toggle Order</button>
+      <button v-on:click="toggleSort()" class="home__toggle-btn">{{btnContent}}</button>
     </div>
     <ul class="top-display">      
         <li v-for="(quiz, x) in quizzes"
@@ -20,12 +20,9 @@
 
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import axios from 'axios';
-import Details from '@/views/Details.vue'
+// import Details from '@/views/Details.vue'
 
-@Component({
-  components :{
-    Details
-  }})
+@Component
 export default class Home extends Vue {
   
   quizzes = [];
@@ -35,7 +32,7 @@ export default class Home extends Vue {
   level:any =[];
   sortedData: Array<String> = ["easy","medium","hard"];
   ascending = true;
-  btnContent = "To desc"
+  btnContent = "To Descending"
   
   mounted(){
     this.getQuizzes()
@@ -79,7 +76,6 @@ export default class Home extends Vue {
         category_ids: categoryIds
       }
     })
-
   }
  
   customSort(data:any, sortBy:any, sortField:any, ascending:boolean=true) {
@@ -104,13 +100,14 @@ export default class Home extends Vue {
   }
 
   toggleSort(){
-
-    if(this.ascending)
-    {this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=false)
-    this.btnContent = "to ascending";}
-    else this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=true)
-
-  }
-    
+    if(this.ascending){
+    this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=false)
+    return this.btnContent = "to Ascending";
+    }
+    else {
+      this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=true)
+    return this.btnContent = "to Descending";
+    }
+  }   
 }
 </script>
