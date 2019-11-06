@@ -32,7 +32,8 @@
 }
 #footer {
   display: flex;
-  justify-content: flex-end;
+  // justify-content: flex-end;
+  align-items: center;
   position: fixed;
   bottom:0;
   width: 100vw;
@@ -41,7 +42,18 @@
 
       a {
         text-decoration: none;
-        color: $color3;
+        color:$color3;
+        }
+      .container {
+        height: 100%;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 2%;
+        li {
+          text-align: left;
+        }
       }
 }
 

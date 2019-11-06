@@ -1,8 +1,10 @@
 <template>
     <div id="footer">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/categories">Categories</router-link> |
-      <router-link to="/random">Random</router-link>
+      <ul class="container">
+        <router-link to="/" tag="li">Home</router-link> 
+        <router-link to="/categories" tag="li">Categories</router-link> 
+        <router-link to="/random" tag="li">Random</router-link>
+      </ul>
     </div>
 </template>
 
