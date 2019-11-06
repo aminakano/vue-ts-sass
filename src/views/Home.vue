@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__btn-area">
-      <button v-on:click="toggleSort()" class="home__toggle-btn">{{btnContent}}</button>
+      <button v-on:click="toggleSort()" class="home__toggle-btn">{{ btnContent }}</button>
     </div>
     <ul class="top-display">
       <div v-if="isLoaded" class="lds-ripple"><div></div><div></div></div>      
@@ -9,9 +9,9 @@
             v-bind:key= "x"
             class="top-display__card"
             v-on:click="viewDetails(quiz, categoryIds)">
-            <h3>{{decodeHTMLEntities(quiz.question)}}</h3>
-            <h4>{{quiz.difficulty}}</h4>
-            <p>{{quiz.category}}</p>
+            <h3>{{ decodeHTMLEntities(quiz.question) }}</h3>
+            <h4>{{ quiz.difficulty }}</h4>
+            <p>{{ quiz.category }}</p>
         </li>    
     </ul>
   </div>
@@ -36,10 +36,10 @@ export default class Home extends Vue {
   isLoaded:boolean = true;
   
   mounted(){
-    this.getQuizzes()
-    this.getCategoryIds()
+    this.getQuizzes();
+    this.getCategoryIds();
   }
-  async getQuizzes(){
+  async getQuizzes() {
     const instance = axios.create({
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
@@ -52,17 +52,17 @@ export default class Home extends Vue {
     this.isLoaded = false;
     
   }
-  async getCategoryIds(){
+  async getCategoryIds() {
     const instance = axios.create({
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
     const response = await instance.get('https://opentdb.com/api_category.php');
    
     this.categoryIds = await response.data.trivia_categories;
-    console.log(this.categoryIds)
+
   }
 
-  decodeHTMLEntities(text:any) {
+  decodeHTMLEntities(text: any) {
    let textArea = document.createElement('textarea');
     textArea.innerHTML = text;
     return textArea.value;
@@ -80,15 +80,15 @@ export default class Home extends Vue {
     })
   }
  
-  customSort(data:any, sortBy:any, sortField:any, ascending:boolean=true) {
-    const sortByObject = sortBy.reduce((obj:any, item:any, index:number) => {
+  customSort(data: any, sortBy:any, sortField: any, ascending: boolean=true) {
+    const sortByObject = sortBy.reduce((obj: any, item: any, index: number) => {
       return {
         ...obj,
         [item]: index
       }
     }, {})
 
-    let result = data.sort((a:any, b:any) => {
+    let result = data.sort((a: any, b: any) => {
       if (sortByObject[a.difficulty] > sortByObject[b.difficulty]) {
         return 1;
       }
@@ -101,8 +101,8 @@ export default class Home extends Vue {
     return result;
   }
 
-  toggleSort(){
-    if(this.ascending){
+  toggleSort() {
+    if(this.ascending) {
     this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=false)
     return this.btnContent = "to Ascending　▲";
     }

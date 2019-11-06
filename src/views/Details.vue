@@ -11,8 +11,8 @@
       </div>
 
       <div class="labels">
-        <p class="labels__label">{{quiz.category}}</p>
-        <p class="labels__label">{{quiz.difficulty}}</p>
+        <p class="labels__label">{{ quiz.category }}</p>
+        <p class="labels__label">{{ quiz.difficulty }}</p>
       </div>
       <div class="multiples">
           <div 
@@ -93,7 +93,6 @@ export default class Details extends Vue {
     data = data.filter((obj: any) => obj.question !== this.quiz.question).splice(0,3);
    
     this.relatedQuestions = data;
-    console.log(this.relatedQuestions)
   }
 
   created() {

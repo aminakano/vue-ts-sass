@@ -54,32 +54,30 @@ export default class Random extends Vue {
     this.multiple = this.quiz.incorrect_answers;
     this.multiple.push(this.quiz.correct_answer);
     this.arrShuffle(this.multiple);
-    this.isLoaded = false
-    console.log(this.quiz)
+    this.isLoaded = false;
   }
-  decodeHTMLEntities(text:string) {
+  decodeHTMLEntities(text: string) {
    let textArea = document.createElement('textarea');
     textArea.innerHTML = text;
     return textArea.value;
   }
-  arrShuffle(array:any) {
+  arrShuffle(array: any) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
         }
   } 
-  isCorrect(selected:string){
+  isCorrect(selected: string) {
       if(selected === this.quiz.correct_answer) {
-        this.correct = true
-        setTimeout(()=>{ 
+        this.correct = true;
+        setTimeout(() => { 
           this.getQuizzes()
-          this.correct = false
-          this.isLoaded =true
+          this.correct = false;
+          this.isLoaded =true;
           },1000);
-
       } else {
-        this.incorrect = true
-        setTimeout(()=>{this.incorrect = false},500)
+        this.incorrect = true;
+        setTimeout(() => {this.incorrect = false},500)
       }
   }
 }
