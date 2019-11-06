@@ -40,10 +40,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import axios from 'axios';
 
-@Component
+import Home from './Home.vue';
+
+@Component({
+  components: {
+    Home
+  }
+})
+
 export default class Details extends Vue {
   quiz: any;
   multiple: Array<String> = [];
@@ -53,9 +60,25 @@ export default class Details extends Vue {
   triviaCategories: any;
   relatedQuestions: Array<Object> = [];
 
+  @Watch('$route')
+  getData(){
+    this.quiz = {
+      question: this.$route.query.question,
+      difficulty: this.$route.query.difficulty,
+      category: this.$route.query.category,
+      correct_answer: this.$route.query.correct_answer,
+      incorrect_answers: this.$route.query.incorrect_answers,
+      category_id: this.$route.query.categoryIds
+    };
+    this.multiple = this.quiz.incorrect_answers
+    this.multiple.push(this.quiz.correct_answer)
+    this.arrShuffle(this.multiple)
+    this.isLoaded = false;
+
+  }
+
   mounted(){
     this.getRelatedQuestions();
-
   }
   async getRelatedQuestions(){
     const instance = axios.create({
@@ -74,29 +97,23 @@ export default class Details extends Vue {
   }
 
   created() {
-    this.quiz = {
-      question: this.$route.query.question,
-      difficulty: this.$route.query.difficulty,
-      category: this.$route.query.category,
-      correct_answer: this.$route.query.correct_answer,
-      incorrect_answers: this.$route.query.incorrect_answers,
-      category_id: this.$route.query.categoryIds
-    };
-    this.multiple = this.quiz.incorrect_answers
-    this.multiple.push(this.quiz.correct_answer)
-    this.arrShuffle(this.multiple)
-    this.isLoaded = false;
+    this.getData();
     
   }
-  viewDetails(item:any){
-      this.quiz = {
-      question: item.question,
-      difficulty: item.difficulty,
-      category: item.category,
-      correct_answer: item.correct_answer,
-      incorrect_answers: item.incorrect_answers
+
+  
+  
+  viewDetails(quiz:any){
+   
+      this.$router.push({ path: 'details', query: {
+        question: quiz.question,
+        difficulty: quiz.difficulty,
+        category: quiz.category,
+        correct_answer: quiz.correct_answer,
+        incorrect_answers: quiz.incorrect_answers,
       }
-      console.log(this.quiz)
+    })
+  
   }
   decodeHTMLEntities(text:string) {
    let textArea = document.createElement('textarea');
@@ -116,7 +133,7 @@ export default class Details extends Vue {
           this.correct = false
           },1000);
 
-      }else {
+      } else {
         this.incorrect = true
         setTimeout(()=>{this.incorrect = false},500)
       }

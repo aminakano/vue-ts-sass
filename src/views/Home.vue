@@ -21,7 +21,19 @@
 
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import axios from 'axios';
-// import Details from '@/views/Details.vue'
+
+
+// export function viewDetails(quiz: any, categoryIds: any) {
+// return { path: 'details', query: {
+//     question: quiz.question,
+//     difficulty: quiz.difficulty,
+//     category: quiz.category,
+//     correct_answer: quiz.correct_answer,
+//     incorrect_answers: quiz.incorrect_answers,
+//     category_ids: categoryIds
+//   }
+// }
+// }
 
 @Component
 export default class Home extends Vue {
