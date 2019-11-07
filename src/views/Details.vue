@@ -42,7 +42,7 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import axios from 'axios';
-
+import MyMixin from '@/mixins/index'
 import Home from './Home.vue';
 
 @Component({
@@ -51,7 +51,7 @@ import Home from './Home.vue';
   }
 })
 
-export default class Details extends Vue {
+export default class Details extends MyMixin {
   quiz: any;
   multiple: Array<String> = [];
   correct: boolean = false;
@@ -99,9 +99,6 @@ export default class Details extends Vue {
     this.relatedQuestions = data;
   }
 
-  
-  
-  
   viewDetails(quiz: any) {
    
       this.$router.push({ path: 'details', query: {
@@ -112,19 +109,8 @@ export default class Details extends Vue {
         incorrect_answers: quiz.incorrect_answers,
       }
     })
+  }
   
-  }
-  decodeHTMLEntities(text: string) {
-   let textArea = document.createElement('textarea');
-    textArea.innerHTML = text;
-    return textArea.value;
-  }
-  arrShuffle(array: any) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-        }
-  }  
   isCorrect(selected: string) {
       if(selected === this.quiz.correct_answer) {
         this.correct = true

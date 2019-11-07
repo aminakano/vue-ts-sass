@@ -21,9 +21,10 @@
 
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import axios from 'axios';
+import MyMixin from '@/mixins/index'
 
 @Component
-export default class Home extends Vue {
+export default class Home extends MyMixin {
   
   quizzes = [];
   categoryIds = [];
@@ -59,12 +60,6 @@ export default class Home extends Vue {
    
     this.categoryIds = await response.data.trivia_categories;
 
-  }
-
-  decodeHTMLEntities(text: any) {
-   let textArea = document.createElement('textarea');
-    textArea.innerHTML = text;
-    return textArea.value;
   }
   
   viewDetails(quiz: any, categoryIds: any) {

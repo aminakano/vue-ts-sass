@@ -33,9 +33,10 @@
 import { Vue, Component } from 'vue-property-decorator';
 import axios from 'axios';
 import { Quiz } from '@/store/models'
+import MyMixin from '@/mixins/index'
 
 @Component
-export default class Random extends Vue {
+export default class Random extends MyMixin {
     quiz: any = [];
     multiple: Array<String> = [];
     correct: boolean = false;
@@ -56,17 +57,7 @@ export default class Random extends Vue {
     this.arrShuffle(this.multiple);
     this.isLoaded = false;
   }
-  decodeHTMLEntities(text: string) {
-   let textArea = document.createElement('textarea');
-    textArea.innerHTML = text;
-    return textArea.value;
-  }
-  arrShuffle(array: any) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-        }
-  } 
+  
   isCorrect(selected: string) {
       if(selected === this.quiz.correct_answer) {
         this.correct = true;
