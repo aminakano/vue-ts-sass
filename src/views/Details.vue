@@ -43,13 +43,8 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import axios from 'axios';
 import MyMixin from '@/mixins/index'
-import Home from './Home.vue';
 
-@Component({
-  components: {
-    Home
-  }
-})
+@Component
 
 export default class Details extends MyMixin {
   quiz: any;

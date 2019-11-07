@@ -166,7 +166,7 @@
         padding: 1%;
     
         &__label{
-          background: $color1;
+          background-color: $color1;
           color: $color3;
           margin: 0 2%;
           padding:1% 2%;
@@ -208,15 +208,16 @@
     width: 60%;
     padding-top: 3%;
 
+
     .labels {
       padding-right:3%;
-      margin-right: 5%;
 
 
       &__label {
         padding: 1% 5%;
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
       }
     }

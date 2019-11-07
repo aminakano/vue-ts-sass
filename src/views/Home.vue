@@ -30,7 +30,6 @@ export default class Home extends MyMixin {
   categoryIds = [];
   relatedQuestions = [];
   query = "";
-  level:any =[];
   sortedData: Array<String> = ["easy","medium","hard"];
   ascending = true;
   btnContent = "To Descending ▼";

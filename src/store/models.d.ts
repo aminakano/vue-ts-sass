@@ -1,7 +1,10 @@
-export interface Quiz {
-    category?: string;
-    correct_answer: string;
-    difficulty: string;
-    incorrect_answers: string[];
-    question: string;
+export interface Home {
+    quizzes:Array<String>;
+    categoryIds: Array<Number>;
+    relatedQuestions: Array<String>;
+    query:String;
+    sortedData: Array<String>;
+    ascending: boolean;
+    btnContent: String;
+    isLoaded: boolean;
 }

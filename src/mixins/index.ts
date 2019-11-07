@@ -9,8 +9,16 @@ export default class MyMixin extends Vue {
                 [array[i], array[j]] = [array[j], array[i]];
             }
         }
+
     decodeHTMLEntities(text: string) {
         let textArea = document.createElement('textarea');
+        const replaceEntities = (en: string, replace: string) => {
+            text.includes(en) ? text.replace(en, replace): text;
+        }
+        replaceEntities('&quot;', '"');
+        replaceEntities('&amp;', "&");
+        replaceEntities('&eacute;', "é");
+        replaceEntities('&#039;', "'");
         textArea.innerHTML = text;
         return textArea.value;
     }

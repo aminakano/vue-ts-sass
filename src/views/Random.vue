@@ -32,7 +32,6 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import axios from 'axios';
-import { Quiz } from '@/store/models'
 import MyMixin from '@/mixins/index'
 
 @Component
