@@ -43,10 +43,9 @@ export default class Home extends Vue {
     const instance = axios.create({
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
-    let categoryId = this.$route.query.categoryId;
+    let categoryId = this.$route.query.categoryId;    
     let url = 'https://opentdb.com/api.php?amount=10&type=multiple'
     const response = await instance.get(categoryId ? url + `&category=${categoryId}` : url);
-   
     this.quizzes = await response.data.results;
     this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"})
     this.isLoaded = false;

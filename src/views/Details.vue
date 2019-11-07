@@ -2,7 +2,7 @@
   <div class="details"> 
     <div class="quiz-detail details__for-detail">
       <h2 class="question">
-        {{decodeHTMLEntities(quiz.question)}} 
+        {{ decodeHTMLEntities(quiz.question) }} 
       </h2>
       <div class="result">
         <p v-if="correct" class="result__positive">Correct!</p>
@@ -61,7 +61,7 @@ export default class Details extends Vue {
   relatedQuestions: Array<Object> = [];
 
   @Watch('$route')
-  getData(){
+  getData() {
     this.quiz = {
       question: this.$route.query.question,
       difficulty: this.$route.query.difficulty,
@@ -77,10 +77,14 @@ export default class Details extends Vue {
 
   }
 
-  mounted(){
+  mounted() {
     this.getRelatedQuestions();
   }
-  async getRelatedQuestions(){
+  created() {
+    this.getData(); 
+  }
+
+  async getRelatedQuestions() {
     const instance = axios.create({
       headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
     });
@@ -95,14 +99,10 @@ export default class Details extends Vue {
     this.relatedQuestions = data;
   }
 
-  created() {
-    this.getData();
-    
-  }
-
   
   
-  viewDetails(quiz:any){
+  
+  viewDetails(quiz: any) {
    
       this.$router.push({ path: 'details', query: {
         question: quiz.question,
@@ -114,18 +114,18 @@ export default class Details extends Vue {
     })
   
   }
-  decodeHTMLEntities(text:string) {
+  decodeHTMLEntities(text: string) {
    let textArea = document.createElement('textarea');
     textArea.innerHTML = text;
     return textArea.value;
   }
-  arrShuffle(array:any) {
+  arrShuffle(array: any) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
         }
   }  
-  isCorrect(selected:string){
+  isCorrect(selected: string) {
       if(selected === this.quiz.correct_answer) {
         this.correct = true
         setTimeout(()=>{ 
@@ -134,7 +134,7 @@ export default class Details extends Vue {
 
       } else {
         this.incorrect = true
-        setTimeout(()=>{this.incorrect = false},500)
+        setTimeout(()=>{this.incorrect = false}, 500)
       }
 
   }
