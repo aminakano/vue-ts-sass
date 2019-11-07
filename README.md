@@ -2,7 +2,8 @@
 
 ## Overview 
 
-Responsive single-page application to play random quizzes_ 
+Responsive single-page application to play random quizzes
+
 Used technology: TypeScript, Vue (VueCLI), SCSS & public API 
 
 ## Pages 
@@ -11,7 +12,8 @@ Home Page, Detail Page, Categories Page and Random Page
 
 ### Home Page  
 
-It shows 10 random results from API and each item is clickable to show its details and play quizzes._ 
+It shows 10 random results from API and each item is clickable to show its details and play quizzes.
+
 It also contains a sort button to change its order by difficulty (easy to hard is by default) 
 
 ### Details Page  
