@@ -12,13 +12,6 @@ export default class MyMixin extends Vue {
 
     decodeHTMLEntities(text: string) {
         let textArea = document.createElement('textarea');
-        const replaceEntities = (en: string, replace: string) => {
-            text.includes(en) ? text.replace(en, replace): text;
-        }
-        replaceEntities('&quot;', '"');
-        replaceEntities('&amp;', "&");
-        replaceEntities('&eacute;', "é");
-        replaceEntities('&#039;', "'");
         textArea.innerHTML = text;
         return textArea.value;
     }

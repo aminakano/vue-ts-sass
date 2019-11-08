@@ -32,7 +32,7 @@ export default class Home extends MyMixin {
   query = "";
   sortedData: Array<String> = ["easy","medium","hard"];
   ascending = true;
-  btnContent = "To Descending ▼";
+  btnContent = "Easy to Hard ▼";
   isLoaded:boolean = true;
   
   mounted(){
@@ -97,11 +97,11 @@ export default class Home extends MyMixin {
   toggleSort() {
     if(this.ascending) {
     this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=false)
-    return this.btnContent = "to Ascending　▲";
+    return this.btnContent = "Hard to Easy ▲";
     }
     else {
       this.customSort(this.quizzes, this.sortedData, {sortField:"difficulty"},this.ascending=true)
-    return this.btnContent = "to Descending　▼";
+    return this.btnContent = "Easy to Hard ▼";
     }
   }   
 }
