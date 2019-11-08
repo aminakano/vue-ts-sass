@@ -76,7 +76,7 @@
 }
 .lds-ripple div {
   position: absolute;
-  border: 4px solid #2c3e50;
+  border: 4px solid $color1;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -134,7 +134,7 @@
       padding: 1%;
       margin: .5%;
       width: 30%;
-      background: #ecf4fb;
+      background: $color4;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -285,12 +285,9 @@
         font-size: 1.2rem;
         border-radius: $border-radius1;
         outline: none;
-        // background: $color2;
-        // color: $color3;
         background:#fff;
         color:$color2;
         border: 1px solid $color2;
-        // border: none;
         white-space: nowrap;
       }
       button:hover {
@@ -300,8 +297,6 @@
       }
     }
  }
-
-
 
 //categories page
 

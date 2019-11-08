@@ -1,6 +1,7 @@
 <template>
   <div class="categories">
     <h3>Select quizzes by categories!</h3>
+    <div v-if="isLoaded" class="lds-ripple"><div></div><div></div></div>
     <ul class="categories__item">
        <li 
         v-for="(category,x) in categoryIds"
@@ -20,6 +21,7 @@ import axios from 'axios';
 @Component
 export default class Categories extends Vue {
 categoryIds: any = [];
+isLoaded:boolean = true;
 
     mounted(){
       this.generateCategories();
@@ -30,6 +32,7 @@ categoryIds: any = [];
       });
       let response = await instance.get('https://opentdb.com/api_category.php');
       this.categoryIds = await response.data.trivia_categories;
+      this.isLoaded = false;
     }
     viewDetails(category: any){
       this.$router.push({ path: '/', query: {

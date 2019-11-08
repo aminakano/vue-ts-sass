@@ -7,4 +7,5 @@
 //     ascending: boolean;
 //     btnContent: String;
 //     isLoaded: boolean;
+
 // }
