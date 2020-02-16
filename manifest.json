@@ -1,5 +1,14 @@
 {
- "name": "App",
+ "name": "myApp",
+ "start_url": "https://trivia-quiz-vue.herokuapp.com/",
+ "scope": ".",
+ "display": "standalone",
+ "orientation": "portrait-primary",
+ "background_color": "#fff",
+ "theme_color": "#6493aa",
+ "description": "Random quiz app",
+ "dir": "ltr",
+ "lang": "en-US",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
