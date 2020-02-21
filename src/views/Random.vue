@@ -21,9 +21,8 @@
         <div
           v-for="choice in multiple"
           v-bind:key="choice"
-          v-on:click="isCorrect(choice)"
-        >
-          {{ choice }}
+          v-on:click="isCorrect(choice)">
+          {{ decodeHTMLEntities(choice) }}
         </div>
       </div>
     </div>

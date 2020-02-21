@@ -21,9 +21,8 @@
         <div
           v-for="choice in multiple"
           v-bind:key="choice"
-          v-on:click="isCorrect(choice)"
-        >
-          {{ choice }}
+          v-on:click="isCorrect(choice)">
+          {{ decodeHTMLEntities(choice) }}
         </div>
       </div>
     </div>
@@ -34,8 +33,7 @@
           v-for="(item, x) in relatedQuestions"
           v-bind:key="x"
           class="related"
-          v-on:click="viewDetails(item)"
-        >
+          v-on:click="viewDetails(item)">
           {{ decodeHTMLEntities(item.question) }}
         </div>
       </div>
