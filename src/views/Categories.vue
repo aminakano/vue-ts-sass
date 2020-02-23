@@ -9,8 +9,7 @@
       <li
         v-for="(category, x) in categoryIds"
         v-bind:key="x"
-        v-on:click="viewDetails(category)"
-      >
+        v-on:click="viewDetails(category)">
         {{ category.name }}
       </li>
     </ul>

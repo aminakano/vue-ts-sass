@@ -1,50 +1,50 @@
 @include media-sm {
 
-    .top-display {
-        padding-bottom: 10%;
-        img {
-            width: 10rem;
-            height: 7rem;
-        }
-        &__card {
-            width: 40%;
-        }  
-    }
+	.top-display {
+		padding-bottom: 10%;
+		img {
+				width: 10rem;
+				height: 7rem;
+		}
+		&__card {
+				width: 40%;
+		}  
+	}
 
-    #footer {
-        height: 10vh;
+	#footer {
+		height: 10vh;
 
-        .media-icons {
-            width:30%
-        }
-    }
+		.media-icons {
+				width:30%
+		}
+	}
 
     //home page 
 
     .home {
-        &__toggle-btn {
-            padding: .2rem .8rem;
-            margin: 2%;
-            font-size: .9rem;
-            border-radius: $border-radius2;
+			&__toggle-btn {
+					padding: .2rem .8rem;
+					margin: 2%;
+					font-size: .9rem;
+					border-radius: $border-radius2;
            
         }
-        .top-display {
-            padding:2% 0 10vh;
-            &__card {
-                width: 45%;
-    
-                h3 {
-                    font-size: .8rem;
-                }
-                h4,p {
-                    font-size: .6rem;
-                }
-                p {
-                    margin: 0;
-                }
-            }
-        }
+			.top-display {
+					padding:2% 0 10vh;
+					&__card {
+							width: 45%;
+	
+						h3 {
+								font-size: .8rem;
+						}
+						h4,p {
+								font-size: .6rem;
+						}
+						p {
+								margin: 0;
+						}
+					}
+			}
     }
 
     //common between details and random
@@ -92,45 +92,45 @@
     //details page
 
     .details {
-        flex-direction: column;
-        height: 100%;
-        margin-bottom:10vh;
-        width: 100vw;
+			flex-direction: column;
+			height: 100%;
+			margin-bottom:10vh;
+			width: 100vw;
 
-        &__for-detail {
-            width: 100%;
-           
-            .multiples {
-                height: 30vh;
-                div {
-                    width: 40%;
-                    display: flex;
-                    padding:3%;
-                    border-radius: $border-radius2;
-                    font-size: .9rem;
-                }
-            }
-        }
-        &__related-questions {
-            justify-content:  center;
-            width: 100%;
-            margin-top: 10%;
-            .related-title {
-                align-self: flex-start;
-                padding-left:5%;
-            }
-            .related-container {
-                width: 100%;
-                justify-content: center;
-                height: 40vh;
-                .related {
-                    border-radius: $border-radius2;
-                    font-size: .9rem;
-                    margin: .5%;
-                    background: $color2;
-                }
-            }     
-        }
+			&__for-detail {
+				width: 100%;
+					
+				.multiples {
+					height: 30vh;
+						div {
+							width: 40%;
+							display: flex;
+							padding:3%;
+							border-radius: $border-radius2;
+							font-size: .9rem;
+						}
+					}
+			}
+			&__related-questions {
+					justify-content:  center;
+					width: 100%;
+					margin-top: 10%;
+					.related-title {
+							align-self: flex-start;
+							padding-left:5%;
+					}
+					.related-container {
+							width: 100%;
+							justify-content: center;
+							height: 40vh;
+							.related {
+									border-radius: $border-radius2;
+									font-size: .9rem;
+									margin: .5%;
+									background: $color2;
+							}
+					}     
+			}
     }
     
     //categories page
@@ -157,7 +157,7 @@
         margin-top:10vh;
     }
     #footer {
-        height: 15vh;
+        height: 15vh;			
     }
     //home page
     .home {
@@ -254,13 +254,13 @@
 }
 
 @include media-lg {
-    .top-display {
+	.top-display {
 
-        &__card {
-            width: 15%;
-            
-        }
-    }
+		&__card {
+				width: 15%;
+				
+		}
+	}
     
 }
 
