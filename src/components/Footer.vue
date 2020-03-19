@@ -6,12 +6,8 @@
       <router-link to="/random" tag="li">Random</router-link>
     </ul>
     <div class="media-icons">
-      <a href="https://www.linkedin.com/in/aminakano/" target="_blank"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <a href="https://github.com/aminakano" target="_blank"
-        ><i class="fab fa-github"></i
-      ></a>
+      <a href="https://www.linkedin.com/in/aminakano/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/aminakano" target="_blank"><i class="fab fa-github"></i></a>
     </div>
   </div>
 </template>
