@@ -16,7 +16,7 @@
         class="top-display__card"
         v-on:click="viewDetails(quiz, categoryIds)"
       >
-        <h3>{{ decodeHTMLEntities(quiz.question) }}</h3>
+        <h3>{{ stripString(quiz.question) }}</h3>
         <h4>{{ quiz.difficulty }}</h4>
         <p>{{ quiz.category }}</p>
       </li>

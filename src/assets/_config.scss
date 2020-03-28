@@ -25,10 +25,16 @@ li {
 @mixin transition-ease {
     transition: all 0.3s ease-in-out;
 }
+
+@mixin media-xs {
+  @media screen and (max-width: 414px){
+			@content;
+	}
+}
 @mixin media-sm {
-    @media screen and (max-width: 767px){
-        @content;
-    }
+	@media screen and (min-width: 415px) and (max-width:767px){
+			@content;
+	}
 }
 
 @mixin media-md {
