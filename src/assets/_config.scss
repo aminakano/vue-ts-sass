@@ -1,5 +1,7 @@
-$color1 :#2c3e50;
-$color2 :#6493aa;
+// $color1 :#2c3e50;
+$color1 :#0f6674;
+$color2 :#17b8b3;
+// $color2 :#6493aa;
 $color3 :#f8f8f8;
 $color4 :#ecf4fb;
 $color5: #ebedee;
@@ -7,6 +9,11 @@ $color6: #757677;
 $border-radius1 : 10px;
 $border-radius2 : 2px;
 $primary-font: "Avenir", Helvetica, Arial, sans-serif;
+
+// possible colour
+//#17a2b8
+//#17b8b3
+//#0f6674
 
 body,h1,h2,h3,h4,h5,h6,ul,li {
     margin:0;
@@ -51,4 +58,25 @@ li {
     @media screen and (min-width: 1440 px){
         @content;
     }
+}
+
+@mixin breakpoint($point) {
+	@if $point == xl {
+     @media (min-width: 1440px) { @content ; }
+  }
+	@else if $point == lg {
+     @media (min-width: 1024px) { @content ; }
+  }
+	@else if $point == md {
+     @media (min-width: 768px) { @content ; }
+  }
+	@else if $point == sm {
+     @media (min-width: 415px) { @content ; }
+  }
+	@else if $point == xs {
+     @media (min-width: 331px)  { @content ; }
+  }
+  @else if $point == xxs {
+     @media (max-width: 330px)  { @content ; }
+  }
 }

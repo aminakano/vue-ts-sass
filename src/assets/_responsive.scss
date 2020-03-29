@@ -1,76 +1,108 @@
 @include media-xs {
-	.top-display {
-		&__card {
-			width: 80%;
+			
+	.details {
+		flex-direction: column;
+		height: 100%;
+		padding-bottom: 8rem;
+		width: 100vw;
+
+		&__for-detail {
+			width: 100%;
+			
+			.multiples {
+				height: 30vh;
+				div {
+					width: 40%;
+					display: flex;
+					padding:3%;
+					border-radius: $border-radius2;
+					font-size: .9rem;
+				}
+			}
+	}
+		&__related-questions {
+			justify-content:  center;
+			width: 100%;
+			margin-top: 10%;
+
+			.related-title {
+					align-self: flex-start;
+					padding-left:5%;
+			}
+			.related-container {
+				width: 100%;
+				justify-content: center;
+				height: 40vh;
+
+				.related {
+					border-radius: $border-radius2;
+					font-size: .9rem;
+					margin: .5%;
+					background: $color2;
+				}
+			}     
 		}
+	}
+
+	.quiz-detail {
+		
+		.question {
+			padding:3% 0 1%;
+			width: 100%; 
+			font-size: 1.1rem;  
+		}
+						
+		.labels {
+			&__label {
+				font-size: .9rem;
+				border-radius: $border-radius2;
+			}
+		}
+	}
+
+	.random {
+			.quiz-detail {
+			.multiples {
+					padding: 3% 0;
+					div {
+							width: 100%;
+							padding: 3% 2%;
+							font-size: 1rem;
+						}
+				}
+			}
+			&__btn-area {
+					display: flex;
+					justify-content: center;
+					margin-top:5%;
+
+					button {
+							border-radius: $border-radius2;
+							margin: 0;
+					}
+			}   
 	}
 }
 
 @include media-sm {
 
-	.top-display {
-		padding-bottom: 10%;
-		img {
-				width: 10rem;
-				height: 7rem;
-		}
-		&__card {
-				width: 40%;
-		}  
-	}
-
-	#footer {
-		height: 10vh;
-
-		.media-icons {
-				width:30%
-		}
-	}
-
-	//home page 
-
-	.home {
-		&__toggle-btn {
-				padding: .2rem .8rem;
-				margin: 2%;
-				font-size: .9rem;
-				border-radius: $border-radius2;
-					
-			}
-		.top-display {
-				padding:2% 0 10vh;
-				&__card {
-						width: 45%;
-
-					h3 {
-							font-size: .8rem;
-					}
-					h4,p {
-							font-size: .6rem;
-					}
-					p {
-							margin: 0;
-					}
-				}
-		}
-	}
 
 	//common between details and random
-	.quiz-detail {
+	// .quiz-detail {
 		
-		.question {
-							padding:3% 0 1%;
-							width: 100%; 
-							font-size: 1.1rem;  
-					}
+	// 	.question {
+	// 		padding:3% 0 1%;
+	// 		width: 100%; 
+	// 		font-size: 1.1rem;  
+	// 	}
 						
-		.labels {
-							&__label {
-									font-size: .9rem;
-									border-radius: $border-radius2;
-							}
-						}
-	}
+	// 	.labels {
+	// 		&__label {
+	// 			font-size: .9rem;
+	// 			border-radius: $border-radius2;
+	// 		}
+	// 	}
+	// }
 	//random page
 	.random {
 			.quiz-detail {
@@ -97,85 +129,70 @@
         
 	//details page
 
-	.details {
-		flex-direction: column;
-		height: 100%;
-		margin-bottom:10vh;
-		width: 100vw;
+	// .details {
+	// 	flex-direction: column;
+	// 	height: 100%;
+	// 	margin-bottom:10vh;
+	// 	width: 100vw;
 
-		&__for-detail {
-			width: 100%;
+	// 	&__for-detail {
+	// 		width: 100%;
 				
-			.multiples {
-				height: 30vh;
-					div {
-						width: 40%;
-						display: flex;
-						padding:3%;
-						border-radius: $border-radius2;
-						font-size: .9rem;
-					}
-				}
-		}
-		&__related-questions {
-				justify-content:  center;
-				width: 100%;
-				margin-top: 10%;
-				.related-title {
-						align-self: flex-start;
-						padding-left:5%;
-				}
-				.related-container {
-						width: 100%;
-						justify-content: center;
-						height: 40vh;
-						.related {
-								border-radius: $border-radius2;
-								font-size: .9rem;
-								margin: .5%;
-								background: $color2;
-						}
-				}     
-		}
-	}
+	// 		.multiples {
+	// 			height: 30vh;
+	// 				div {
+	// 					width: 40%;
+	// 					display: flex;
+	// 					padding:3%;
+	// 					border-radius: $border-radius2;
+	// 					font-size: .9rem;
+	// 				}
+	// 			}
+	// 	}
+	// 	&__related-questions {
+	// 			justify-content:  center;
+	// 			width: 100%;
+	// 			margin-top: 10%;
+	// 			.related-title {
+	// 					align-self: flex-start;
+	// 					padding-left:5%;
+	// 			}
+	// 			.related-container {
+	// 					width: 100%;
+	// 					justify-content: center;
+	// 					height: 40vh;
+	// 					.related {
+	// 							border-radius: $border-radius2;
+	// 							font-size: .9rem;
+	// 							margin: .5%;
+	// 							background: $color2;
+	// 					}
+	// 			}     
+	// 	}
+	// }
     
 	//categories page
-	.categories {
-			margin:22% 5%;
-			height: 100%;
-			overflow: scroll;
-			h3 {
-					padding: 0;
-					font-size: 1rem;
-			}
+	// .categories {
+	// 		margin:22% 5%;
+	// 		height: 100%;
+	// 		overflow: scroll;
+	// 		h3 {
+	// 				padding: 0;
+	// 				font-size: 1rem;
+	// 		}
 
-			&__item {
-					li {
-							width: 100%;
-							border-radius: $border-radius2;
-							height: 35px;
-					}
-			}
-	}
+	// 		&__item {
+	// 				li {
+	// 						width: 100%;
+	// 						border-radius: $border-radius2;
+	// 						height: 35px;
+	// 				}
+	// 		}
+	// }
 }
 @include media-md {
 	#app {
 			margin-top:10vh;
-	}
-	#footer {
-			height: 15vh;			
-	}
-	//home page
-	.home {
-				&__toggle-btn {
-					margin: 2%;
-			}
-			.top-display {
-					padding-bottom: 18vh;
-				&__card {
-				width: 15%;
-				}
-			}
 	}
 	//details page
 	.details {
@@ -212,22 +229,22 @@
 
 	//categories page
 	.categories {
-			margin:18% 8%;
-			padding-bottom: 5vh;
-			height: 100%;
-			overflow: scroll;
+			// margin:18% 8%;
+			// padding-bottom: 5vh;
+			// height: 100%;
+			// overflow: scroll;
 
-			h3 {
-					padding: 0;
-			}
-			&__item {
-					li {
-							width: 100%;
-							border-radius: $border-radius2;
-							height: 35px;
-							font-size: 1.2rem;
-					}
-			}
+			// h3 {
+			// 		padding: 0;
+			// }
+			// &__item {
+			// 		li {
+			// 				width: 100%;
+			// 				border-radius: $border-radius2;
+			// 				height: 35px;
+			// 				font-size: 1.2rem;
+			// 		}
+			// }
 	}
 
 	//random page
@@ -261,16 +278,3 @@
 			}
 	}
 }
-
-@include media-lg {
-	.top-display {
-
-		&__card {
-				width: 15%;
-				
-		}
-	}
-    
-}
-
-@include media-xl {}

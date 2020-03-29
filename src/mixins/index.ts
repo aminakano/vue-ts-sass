@@ -16,10 +16,12 @@ export default class MyMixin extends Vue {
   }
 
   stripString(string: string) {
-    let text = this.decodeHTMLEntities(string)
-    while (window.screen.width < 415) {
+    let text = this.decodeHTMLEntities(string);
+    const width = window.screen.width;
+    if (width < 415) {
       return text.length > 30 ? text.split("").slice(0, 30).join("") + "..." : text;
+    } else {
+      return text.length > 50 ? text.split("").slice(0, 50).join("") + "..." : text;
     }
-    return text;
   }
 }
