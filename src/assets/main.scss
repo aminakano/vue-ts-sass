@@ -2,6 +2,7 @@
 @import 'loader';
 @import 'footer';
 @import 'home';
+@import 'categories';
 
 #app {
   font-family: $primary-font;
@@ -10,7 +11,7 @@
   text-align: center;
   color: $color1;
   padding:0;
-  margin-top:10vh;
+  // margin-top:10vh;
   background: $color2;
 }
 
@@ -190,30 +191,4 @@
     }
  }
 
-//categories page
-
-.categories {
-    h3 {
-      padding-top: 4%;
-      font-size: 1.5rem;
-    }
-    &__item {
-      padding-top: 5%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      li {
-        display: flex;
-        align-items: center;
-        background: $color5;
-        margin: 1%;
-        padding: 1%;
-      }
-      li:hover {
-        background: $color6;
-        color: $color3;
-        @include transition-ease;
-      }
-    }
-}
 @import 'responsive';
