@@ -3,6 +3,7 @@
 @import 'footer';
 @import 'home';
 @import 'categories';
+@import 'details';
 
 #app {
   font-family: $primary-font;
@@ -11,8 +12,12 @@
   text-align: center;
   color: $color1;
   padding:0;
-  // margin-top:10vh;
   background: $color2;
+
+  @include breakpoint(md) {
+    margin-top:10vh;
+  }
+
 }
 
 #nav {
@@ -33,162 +38,5 @@
     color: $color3;
   }
 }
-
-//common between details and random
-
-.quiz-detail {
-    .question {
-        width: 70%;
-        text-align: center;
-        padding: 0 15%;
-      }
-    .result {
-        height: 5vh;
-        padding: 1%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    
-        &__positive {
-          font-size: 1.5rem;
-          color: #4DD76C;
-          font-weight: bold;
-        }
-        &__negative {
-          color: red;
-        } 
-      }
-    
-    .labels {
-        display: flex;
-        justify-content: flex-end;
-        padding: 1%;
-    
-        &__label{
-          background-color: $color1;
-          color: $color3;
-          margin: 0 2%;
-          padding:1% 2%;
-          text-align: center;
-          white-space: nowrap;
-        }
-      }
-    
-    .multiples {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        div {
-          background: $color4;
-          width: 15%;
-          margin: 1%;
-          padding: 3%;
-          font-size: 1.5rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-            @include transition-ease;
-        }
-        div:hover {
-            box-shadow: 0px 0px 5px gray;
-            
-        }
-      
-    }
-} 
-
-//detail page
-
-.details {
-  display: flex;
-  justify-content: space-between;
-  height: 70vh;
-
-  &__for-detail {
-    width: 60%;
-    padding-top: 3%;
-
-
-    .labels {
-      padding-right:3%;
-
-
-      &__label {
-        padding: 1% 5%;
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    .question {
-      width:100%;
-      padding: 0;
-    }
-    .multiples {
-      display: flex;
-      align-items: center;
-      height: 40vh;
-      div {
-        width: 40%;
-        height: 5rem;
-      }
-    }
-    
-  }
-
-  &__related-questions{
-      width: 40%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-
-      .related-container {
-        height: 50vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        .related {
-          padding: 5%;
-          margin: 2%;
-          background: $color1;
-          color: $color3;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      }
-      
-  }
-}
-
-
-//random page
-
-.random{
-    padding: 3% 0 22vh;
-
-    &__btn-area{
-      display: flex;
-      justify-content: flex-end;
-
-      button {
-        padding: 1.5%;
-        margin-right: 5%;
-        font-size: 1.2rem;
-        border-radius: $border-radius1;
-        outline: none;
-        background:#fff;
-        color:$color2;
-        border: 1px solid $color2;
-        white-space: nowrap;
-      }
-      button:hover {
-        background: $color2;
-        color: $color3;
-        @include transition-ease;
-      }
-    }
- }
 
 @import 'responsive';

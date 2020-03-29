@@ -1,0 +1,254 @@
+// correct or incorrect 
+@mixin quiz-result {
+  .result {
+    height: 5vh;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__positive {
+      font-size: 1.5rem;
+      color: #4DD76C;
+      font-weight: bold;
+    }
+    &__negative {
+      color: red;
+    } 
+  }
+}
+
+//detail page
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 20%;
+  padding-bottom: 5rem;
+
+  @include breakpoint(md) {
+    padding-top: 0;
+  }
+  @include breakpoint(lg) {
+    height: 70vh;
+    flex-direction: row;
+  }
+
+  &__for-detail {
+    width: 100%;
+
+    @include breakpoint(md) {
+      padding-top: 0;
+    }
+
+    @include breakpoint(lg) {
+      padding-top: 3%;
+      width: 60%;
+    }
+    .question {
+      padding:3% 2% 1%;
+      font-size: 1.25rem;
+      color: $color3;  
+
+      @include breakpoint(md) {
+        width: 90%;
+        padding: 1% 5% 0;
+        font-size: 1.5rem;
+      }
+      @include breakpoint(lg) {
+        width:100%;
+        padding: 0;
+        font-size: 2rem;
+      }
+
+    }
+
+    .labels {
+      padding-right:3%;
+
+      &__label {
+        font-size: .9rem;
+				border-radius: $border-radius2;
+
+        padding: 1% 5%;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .multiples {
+      display: flex;
+      height: 40vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      @include breakpoint(md) {
+        height: 30vh;
+      }
+      @include breakpoint(lg) {
+        justify-content: center;
+      }
+
+      div {
+        width: 40%;
+        height: 5rem;
+        display: flex;
+        padding:3%;
+        border-radius: $border-radius2;
+        font-size: .9rem;
+        background: $color4;
+        margin: 1%;
+        justify-content: center;
+        align-items: center;
+        @include transition-ease;
+
+        &:hover {
+          box-shadow: 0px 0px 5px gray;
+          cursor: pointer;
+        }
+
+        @include breakpoint(lg) {
+          width: 30%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    
+  }
+
+  &__related-questions{
+      justify-content:  center;
+      width: 100%;
+      
+      @include breakpoint(md) {
+        padding-top: 5%;
+      }
+
+      @include breakpoint(lg) {
+
+        width: 40%;
+      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+			.related-title {
+        align-self: flex-start;
+        padding-left: 5%;
+        color: $color3;
+        font-weight: bold;
+
+        @include breakpoint(md) {
+          font-size: 1.25rem;
+        }
+
+        @include breakpoint(lg) {
+          font-size: 1.3rem;
+          padding: 2% 0;
+          margin-left: 2%;
+        }
+			}
+
+
+      .related-container {
+        width: 100%;
+        justify-content: center;
+
+        @include breakpoint(md) {
+          height: 20vh; 
+        }
+        
+        @include breakpoint(lg){
+          height: 50vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+
+
+        .related {
+          border-radius: $border-radius2;
+					font-size: .9rem;
+					margin: 2% 2% 2% 5%;  
+          color: $color3;
+          font-style: italic;
+          text-align: left;
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+          
+          @include breakpoint(lg) {
+            
+            padding: 5%;
+            margin: 2%;
+            background: $color1;
+            color: $color3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+        }
+      }
+      
+  }
+}
+
+//common between details and random
+
+.quiz-detail {
+
+    @include quiz-result;
+    
+    .labels {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1%;
+    
+        &__label{
+          background-color: $color1;
+          color: $color3;
+          margin: 0 2%;
+          padding:1% 2%;
+          text-align: center;
+          white-space: nowrap;
+        }
+      }
+
+} 
+
+
+
+//random page
+
+.random{
+    padding: 3% 0 22vh;
+
+    &__btn-area{
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 1.5%;
+        margin-right: 5%;
+        font-size: 1.2rem;
+        border-radius: $border-radius1;
+        outline: none;
+        background:#fff;
+        color:$color2;
+        border: 1px solid $color2;
+        white-space: nowrap;
+      }
+      button:hover {
+        background: $color2;
+        color: $color3;
+        @include transition-ease;
+      }
+    }
+ }
+
