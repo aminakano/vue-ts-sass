@@ -3,6 +3,15 @@
 .home {
   margin-bottom: 3rem;
   margin-top: 17%;
+  background-color: $color2;
+
+  @include breakpoint(lg) {
+    margin-top: 10vh;
+
+    h1 {
+      padding-top: 3rem;
+    }
+  }
 
   &__btn-area {
     display: flex;
@@ -22,10 +31,15 @@
 
     @include breakpoint(md) {
       padding: .2rem .8rem;
-      margin: 2%;
+      margin-top: 2%;
       font-size: .9rem;
       border-radius: $border-radius2;
     }
+
+    @include breakpoint(lg) {
+      margin-top: 0;
+    }
+
   }
 
   .top-display {
@@ -38,6 +52,11 @@
 
     @include breakpoint(md) {
       padding: 2% 10%;
+    }
+
+    @include breakpoint(lg) {
+      padding-top: 0;
+      padding-bottom: 5rem;
     }
  
     &__card {
