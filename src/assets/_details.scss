@@ -203,23 +203,22 @@
 
 .quiz-detail {
 
-    @include quiz-result;
-    
-    .labels {
-        display: flex;
-        justify-content: flex-end;
-        padding: 1%;
-    
-        &__label{
-          background-color: $color1;
-          color: $color3;
-          margin: 0 2%;
-          padding:1% 2%;
-          text-align: center;
-          white-space: nowrap;
-        }
-      }
+  @include quiz-result;
+  
+  .labels {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1%;
 
+    &__label{
+      background-color: $color1;
+      color: $color3;
+      margin: 0 2%;
+      padding:1% 2%;
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
 } 
 
 
@@ -227,7 +226,29 @@
 //random page
 
 .random{
-    padding: 3% 0 22vh;
+  padding: 20% 0 0;
+  height: 85vh;
+
+  h2 {
+    color: $color4;
+  }
+
+  .multiples {
+    padding: 3% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+        width: 90%;
+        padding: 3% 2%;
+        font-size: 1rem;
+        border-radius: $border-radius2;
+        font-size: .9rem;
+        background: $color4;
+        margin: 1%;
+      }
+  }
 
     &__btn-area{
       display: flex;

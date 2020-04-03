@@ -1,16 +1,6 @@
 @include media-xs {
 
 	.random {
-			.quiz-detail {
-			.multiples {
-					padding: 3% 0;
-					div {
-							width: 100%;
-							padding: 3% 2%;
-							font-size: 1rem;
-						}
-				}
-			}
 			&__btn-area {
 					display: flex;
 					justify-content: center;
