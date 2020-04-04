@@ -55,7 +55,7 @@
       @include breakpoint(md) {
         width: 90%;
         padding: 1% 5% 0;
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       @include breakpoint(lg) {
         width:100%;
@@ -249,7 +249,8 @@
       margin: 1%;
 
       @include breakpoint(md) {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        width: 75%;
       }
     }
   }
@@ -257,6 +258,10 @@
     &__btn-area{
       display: flex;
       justify-content: flex-end;
+
+      @include breakpoint(md) {
+        margin-bottom: 5%;
+      }
 
       button {
         padding: 1.5%;
