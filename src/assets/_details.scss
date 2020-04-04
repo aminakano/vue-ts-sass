@@ -240,14 +240,18 @@
     align-items: center;
 
     div {
-        width: 90%;
-        padding: 3% 2%;
-        font-size: 1rem;
-        border-radius: $border-radius2;
-        font-size: .9rem;
-        background: $color4;
-        margin: 1%;
+      width: 90%;
+      padding: 3% 2%;
+      font-size: 1rem;
+      border-radius: $border-radius2;
+      font-size: .9rem;
+      background: $color4;
+      margin: 1%;
+
+      @include breakpoint(md) {
+        font-size: 1.5rem;
       }
+    }
   }
 
     &__btn-area{
