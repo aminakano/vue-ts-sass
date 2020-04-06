@@ -8,7 +8,9 @@
   @include breakpoint(md) {
     height:15vh;
   }
-
+  @include breakpoint(lg) {
+    height: 10vhg;
+  }
   .media-icons {
     color: $color3;
     height: 100%;
