@@ -1,15 +1,15 @@
 #footer {
   position: fixed;
-  bottom:0;
+  bottom: 0;
   width: 100vw;
   background: $color1;
   height: 3rem;
 
   @include breakpoint(md) {
-    height:15vh;
+    height: 15vh;
   }
   @include breakpoint(lg) {
-    height: 10vhg;
+    height: 10vh;
   }
   .media-icons {
     color: $color3;
