@@ -5,6 +5,10 @@
 @import 'categories';
 @import 'details';
 
+body {
+  background-color: $color2;
+}
+
 #app {
   font-family: $primary-font;
   -webkit-font-smoothing: antialiased;
@@ -12,10 +16,9 @@
   text-align: center;
   color: $color1;
   padding:0;
-  background: $color2;
 
   @include breakpoint(md) {
-    margin-top:10vh;
+    margin-top: 10vh;
   }
 
 }
@@ -23,7 +26,6 @@
 #nav {
   width: 100vw;
   height:10vh;
-  background: $color2;
   position: fixed;
   top: 0;
   display: flex;
