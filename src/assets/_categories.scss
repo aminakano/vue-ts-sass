@@ -58,6 +58,10 @@
       @include breakpoint(lg) {
         width: 20%;
         height: 3rem;
+
+        &.lengthy {
+          font-size: 1rem;
+        }
       }
 
       &:hover {
@@ -66,6 +70,7 @@
         cursor: pointer;
         @include transition-ease;
       }
+
     }
   }
 }

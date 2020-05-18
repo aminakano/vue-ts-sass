@@ -9,8 +9,10 @@
       <li
         v-for="(category, x) in categoryIds"
         v-bind:key="x"
-        v-on:click="viewDetails(category)">
+        v-on:click="viewDetails(category)"
+        v-bind:class="{ lengthy: category.name.length > 25 }">
         {{ category.name }}
+        <!-- {{adjustTextSize(category.name)}} -->
       </li>
     </ul>
   </div>
@@ -19,9 +21,10 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import axios from "axios";
+import MyMixin from "@/mixins/index";
 
 @Component
-export default class Categories extends Vue {
+export default class Categories extends MyMixin {
   categoryIds: any = [];
   isLoaded: boolean = true;
 

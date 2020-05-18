@@ -24,4 +24,13 @@ export default class MyMixin extends Vue {
       return text.length > 50 ? text.split("").slice(0, 50).join("") + "..." : text;
     }
   }
+
+  //WIP
+  adjustTextSize(string: string, arg: string) {
+    // let text = this.decodeHTMLEntities(string);
+    if(string.split(" ")[0] === arg) {
+      // text.split(" ")[0] = `<span>${arg}</span>`
+      console.log(arg)
+    }
+  }
 }
