@@ -25,7 +25,7 @@ export default class MyMixin extends Vue {
     }
   }
 
-  //WIP
+  //Todo
   adjustTextSize(string: string, arg: string) {
     // let text = this.decodeHTMLEntities(string);
     if(string.split(" ")[0] === arg) {
