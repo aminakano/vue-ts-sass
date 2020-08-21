@@ -184,7 +184,7 @@
             
             padding: 5%;
             margin: 2%;
-            background: $color1;
+            background: $color7;
             color: $color3;
             display: flex;
             justify-content: center;
@@ -208,10 +208,14 @@
     justify-content: flex-end;
     padding: 1%;
 
+    @include breakpoint(lg) {
+      padding: 0 10%;
+    }
+
     &__label{
-      background-color: $color1;
+      background-color: $color7;
       color: $color3;
-      margin: 0 2%;
+      margin: 0 1%;
       padding:1% 2%;
       text-align: center;
       white-space: nowrap;

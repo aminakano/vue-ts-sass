@@ -20,6 +20,10 @@
   &__btn-area {
     display: flex;
     justify-content: flex-end;
+    @include breakpoint(lg) {
+      padding-right: 10%;
+      padding-left: 10%;
+    }
   }
 
   &__toggle-btn {
@@ -28,7 +32,7 @@
     height: 2.5rem;
     font-size: 1.1rem;
     border-radius: $border-radius1;
-    background: $color1;
+    background: $color7;
     color: $color3;
     border: none;
     margin: 1%;

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Up for a challenge?</h1>
+    <h1>Today's challenge!</h1>
     <div class="home__btn-area">
       <button v-on:click="toggleSort()" class="home__toggle-btn">
         {{ btnContent }}
