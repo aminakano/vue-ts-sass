@@ -20,8 +20,8 @@
   }
 
   @include breakpoint(lg) {
-    margin: 3% 8%;
-    padding: 2% 5% 5%;
+    margin: 0 5%;
+    padding: 0;
   }
 
   &__item {
@@ -57,7 +57,7 @@
       }
       @include breakpoint(lg) {
         width: 20%;
-        height: 3rem;
+        height: 2rem;
 
         &.lengthy {
           font-size: 1rem;
