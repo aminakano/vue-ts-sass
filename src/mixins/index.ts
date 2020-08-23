@@ -25,12 +25,13 @@ export default class MyMixin extends Vue {
     }
   }
 
-  //Todo
-  adjustTextSize(string: string, arg: string) {
-    // let text = this.decodeHTMLEntities(string);
-    if(string.split(" ")[0] === arg) {
-      // text.split(" ")[0] = `<span>${arg}</span>`
-      console.log(arg)
-    }
+  addCategory(string: string) {
+    const str = string.split(" ")[0].split("");
+    return str[str.length - 1] == ":" ? string.split(" ")[0] : null;
+  }
+
+  adjustTextSize(string: string) {
+    const str = string.split(" ")[0].split("");
+    return str[str.length - 1] == ":" ? string.split(" ")[1] : string;
   }
 }

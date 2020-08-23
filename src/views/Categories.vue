@@ -9,10 +9,9 @@
       <li
         v-for="(category, x) in categoryIds"
         v-bind:key="x"
-        v-on:click="viewDetails(category)"
-        v-bind:class="{ lengthy: category.name.length > 25 }">
-        {{ category.name }}
-        <!-- {{adjustTextSize(category.name)}} -->
+        v-on:click="viewDetails(category)">
+        <span class="genre">{{ addCategory(category.name)}}</span>
+        <span>{{ adjustTextSize(category.name)}}</span>
       </li>
     </ul>
   </div>
