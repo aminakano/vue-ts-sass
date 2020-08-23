@@ -22,7 +22,7 @@
           v-for="choice in multiple"
           v-bind:key="choice"
           v-on:click="isCorrect(choice)">
-          {{ decodeHTMLEntities(choice) }}
+          <span v-bind:class="{ lengthy: choice.length > 25 }">{{ decodeHTMLEntities(choice) }}</span>
         </div>
       </div>
     </div>

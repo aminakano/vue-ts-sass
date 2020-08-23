@@ -50,7 +50,6 @@
     .question {
       padding:3% 2% 1%;
       font-size: 1.25rem;
-      color: $color3;  
 
       @include breakpoint(md) {
         width: 90%;
@@ -136,7 +135,6 @@
 			.related-title {
         align-self: flex-start;
         padding-left: 5%;
-        color: $color3;
         font-weight: bold;
 
         @include breakpoint(md) {
@@ -238,8 +236,8 @@
     padding: 2% 0 0;
   }
 
-  h2 {
-    color: $color4;
+  .question {
+    margin: 0 5%;
   }
 
   .multiples {
@@ -253,6 +251,8 @@
       flex-wrap: wrap;
       justify-content: center;
       padding:0;
+      width: 80%;
+      margin: 0 10%;
     }
 
     div {
@@ -272,6 +272,10 @@
       @include breakpoint(lg) {
         width: 30%;
         padding: 2%;
+
+        .lengthy {
+          font-size: 1.5rem;
+        }
       }
 
       &:hover {

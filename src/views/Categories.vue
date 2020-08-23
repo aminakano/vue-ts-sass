@@ -10,8 +10,8 @@
         v-for="(category, x) in categoryIds"
         v-bind:key="x"
         v-on:click="viewDetails(category)">
-        <span class="genre">{{ addCategory(category.name)}}</span>
-        <span>{{ adjustTextSize(category.name)}}</span>
+        <span class="genre">{{ textSeparate(category.name, 0, null)}}</span>
+        <span>{{ textSeparate(category.name, 1, category.name)}}</span>
       </li>
     </ul>
   </div>
